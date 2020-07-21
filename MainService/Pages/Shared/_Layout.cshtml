@@ -30,6 +30,13 @@
         </nav>
     </header>
     <div class="container">
+        <environment include="Development">
+            <div class="alert alert-danger" role="alert">
+                <b>Development Mode is active, which is insecure.</b>
+                <p>See the <a href="https://www.example.com/">respective docs</a> on how to disable Development Mode.</p>
+            </div>
+        </environment>
+
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
