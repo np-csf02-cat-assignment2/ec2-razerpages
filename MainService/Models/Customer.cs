@@ -13,6 +13,6 @@ namespace MainService.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         [DataType(DataType.EmailAddress)]
-        public object EmailAddress { get; set; }
+        public string EmailAddress { get; set; }
     }
 }

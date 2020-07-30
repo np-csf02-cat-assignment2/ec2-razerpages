@@ -27,7 +27,7 @@ namespace MainService
         {
             services.AddRazorPages();
 
-            services.AddDbContext<MainServiceContext>(options => options.UseNpgsql(Configuration.GetConnectionString("MainService")));
+            services.AddDbContext<MainServiceContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MainService")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
