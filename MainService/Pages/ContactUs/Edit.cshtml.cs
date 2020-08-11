@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using MainService.Data;
 using MainService.Models;
 
-namespace MainService.Pages_Customers
+namespace MainService.Pages_ContactUs
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace MainService.Pages_Customers
         }
 
         [BindProperty]
-        public Customer Customer { get; set; }
+        public ContactUs ContactUs { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,9 +30,9 @@ namespace MainService.Pages_Customers
                 return NotFound();
             }
 
-            Customer = await _context.Customer.FirstOrDefaultAsync(m => m.ID == id);
+            ContactUs = await _context.ContactUs.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Customer == null)
+            if (ContactUs == null)
             {
                 return NotFound();
             }
@@ -48,7 +48,7 @@ namespace MainService.Pages_Customers
                 return Page();
             }
 
-            _context.Attach(Customer).State = EntityState.Modified;
+            _context.Attach(ContactUs).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace MainService.Pages_Customers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CustomerExists(Customer.ID))
+                if (!ContactUsExists(ContactUs.ID))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace MainService.Pages_Customers
             return RedirectToPage("./Index");
         }
 
-        private bool CustomerExists(int id)
+        private bool ContactUsExists(int id)
         {
-            return _context.Customer.Any(e => e.ID == id);
+            return _context.ContactUs.Any(e => e.ID == id);
         }
     }
 }

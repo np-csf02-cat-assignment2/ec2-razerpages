@@ -1,0 +1,37 @@
+@page
+@model MainService.Pages_Thumbnails.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ThumbnailOverview)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ThumbnailOverview) {
+        <tr>
+            <td>
+                <img src="@item.ThumbnailUrl" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileName)
+            </td>
+            <td>
+                <a asp-page="./Details" asp-route-id="@item.FileName">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.FileName">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

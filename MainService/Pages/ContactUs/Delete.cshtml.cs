@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MainService.Data;
 using MainService.Models;
 
-namespace MainService.Pages_Customers
+namespace MainService.Pages_ContactUs
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace MainService.Pages_Customers
         }
 
         [BindProperty]
-        public Customer Customer { get; set; }
+        public ContactUs ContactUs { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,9 @@ namespace MainService.Pages_Customers
                 return NotFound();
             }
 
-            Customer = await _context.Customer.FirstOrDefaultAsync(m => m.ID == id);
+            ContactUs = await _context.ContactUs.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Customer == null)
+            if (ContactUs == null)
             {
                 return NotFound();
             }
@@ -45,11 +45,11 @@ namespace MainService.Pages_Customers
                 return NotFound();
             }
 
-            Customer = await _context.Customer.FindAsync(id);
+            ContactUs = await _context.ContactUs.FindAsync(id);
 
-            if (Customer != null)
+            if (ContactUs != null)
             {
-                _context.Customer.Remove(Customer);
+                _context.ContactUs.Remove(ContactUs);
                 await _context.SaveChangesAsync();
             }
 

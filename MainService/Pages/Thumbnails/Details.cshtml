@@ -1,0 +1,22 @@
+@page
+@model MainService.Pages_Thumbnails.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>@Model.fileName</h4>
+
+    <h5>Original Image</h5>
+    <img src="@Model.fileLargeURL" />
+
+    <h5>Thumbnail</h5>
+    <img src="@Model.fileURL" />
+</div>
+<div>
+    @* <a asp-page="./Edit" asp-route-id="@Model.Customer.ID">Edit</a> | *@
+    <a asp-page="./Index">Back to List</a>
+</div>
