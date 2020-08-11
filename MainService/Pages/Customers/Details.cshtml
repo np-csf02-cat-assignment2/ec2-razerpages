@@ -1,5 +1,5 @@
-﻿@page
-@model MainService.Pages.Customers.DetailsModel
+@page
+@model MainService.Pages_Customers.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
@@ -28,6 +28,12 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Customer.EmailAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer.BusinessPhone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer.BusinessPhone)
         </dd>
     </dl>
 </div>

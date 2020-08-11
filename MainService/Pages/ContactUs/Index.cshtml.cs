@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MainService.Data;
 using MainService.Models;
 
-namespace MainService.Pages_Customers
+namespace MainService.Pages_ContactUs
 {
     public class IndexModel : PageModel
     {
@@ -19,11 +19,11 @@ namespace MainService.Pages_Customers
             _context = context;
         }
 
-        public IList<Customer> Customer { get;set; }
+        public IList<ContactUs> ContactUs { get;set; }
 
         public async Task OnGetAsync()
         {
-            Customer = await _context.Customer.ToListAsync();
+            ContactUs = await _context.ContactUs.ToListAsync();
         }
     }
 }

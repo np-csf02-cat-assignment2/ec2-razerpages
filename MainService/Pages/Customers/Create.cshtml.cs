@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,13 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using MainService.Data;
 using MainService.Models;
 
-namespace MainService.Pages.Customers
+namespace MainService.Pages_Customers
 {
     public class CreateModel : PageModel
     {
-        private readonly MainService.Data.MainServiceContext _context;
+        private readonly MainService.Data.MainServiceDbContext _context;
 
-        public CreateModel(MainService.Data.MainServiceContext context)
+        public CreateModel(MainService.Data.MainServiceDbContext context)
         {
             _context = context;
         }

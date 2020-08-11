@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MainService.Data;
 using MainService.Models;
 
-namespace MainService.Pages_Customers
+namespace MainService.Pages_ContactUs
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace MainService.Pages_Customers
             _context = context;
         }
 
-        public Customer Customer { get; set; }
+        public ContactUs ContactUs { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +28,9 @@ namespace MainService.Pages_Customers
                 return NotFound();
             }
 
-            Customer = await _context.Customer.FirstOrDefaultAsync(m => m.ID == id);
+            ContactUs = await _context.ContactUs.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Customer == null)
+            if (ContactUs == null)
             {
                 return NotFound();
             }
