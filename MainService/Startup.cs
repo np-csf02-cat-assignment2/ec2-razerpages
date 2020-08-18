@@ -67,6 +67,15 @@ namespace MainService
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
             });
+
+            // using (var serviceScope = app.ApplicationServices
+            //     .GetRequiredService<IServiceScopeFactory>()
+            //     .CreateScope())
+            // using (var context = serviceScope.ServiceProvider.GetService<MainServiceDbContext>())
+            // {
+            //     if (!context.Database.EnsureCreated())
+            //         context.Database.Migrate();
+            // }
         }
     }
 }

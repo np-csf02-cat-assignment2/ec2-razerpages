@@ -34,7 +34,7 @@ namespace MainService.Pages_Thumbnails
                 return Page();
             }
 
-            var uploadFilePath = new Guid().ToString() + Path.GetExtension(Upload.FileName);
+            var uploadFilePath = Guid.NewGuid().ToString() + Path.GetExtension(Upload.FileName);
 
             using (var memoryStream = new MemoryStream())
             {
