@@ -35,9 +35,7 @@ namespace MainService.Pages_ContactUs
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
-            {
                 return Page();
-            }
 
             Console.WriteLine(JsonSerializer.Serialize(new Dictionary<string, string>
                 {
@@ -47,19 +45,19 @@ namespace MainService.Pages_ContactUs
                 }));
 
             var client = _httpClientFactory.CreateClient();
-            client.DefaultRequestHeaders.Add("x-api-key", "MdUOmM06pg5nOsBARzlqfa5P9yHt0QOUaUIrGphS");
-            //client.DefaultRequestHeaders.Add("Content-Type", "application/json");
-            var response = await client.PostAsync("https://n9jpobea75.execute-api.us-east-1.amazonaws.com/default/CustomerDataNoSQL",
+            client.DefaultRequestHeaders.Add("x-api-key", "MdUOmM06pg5nOsBARzlqfa5P9yHt0QOUaUIrGphS");;
+            var response = await client.PostAsync("https://n9jpobea75.execute-api.us-east-1.amazonaws.com/prod/contact-us",
                 new StringContent(JsonSerializer.Serialize(new Dictionary<string, string>
                 {
                     { "email", ContactUs.EmailAddress },
-                    { "firstName", ContactUs.FirstName },
-                    { "lastName", ContactUs.LastName }
-                })));
+                    { "first-name", ContactUs.FirstName },
+                    { "last-name", ContactUs.LastName }
+                }), Encoding.UTF8, "application/json"));
 
             if (response.StatusCode.ToString() != "200")
             {
                 ModelState.AddModelError("Sorry, an issue occured with submitting the contact form.", "Sorry, an issue occured with submitting the contact form.");
+                return Page();
             }
 
             return RedirectToPage("./Index");
