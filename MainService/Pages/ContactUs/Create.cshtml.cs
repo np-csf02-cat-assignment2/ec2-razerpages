@@ -48,7 +48,7 @@ namespace MainService.Pages_ContactUs
 
             var client = _httpClientFactory.CreateClient();
             client.DefaultRequestHeaders.Add("x-api-key", "MdUOmM06pg5nOsBARzlqfa5P9yHt0QOUaUIrGphS");
-            client.DefaultRequestHeaders.Add("Content-Type", "application/json");
+            //client.DefaultRequestHeaders.Add("Content-Type", "application/json");
             var response = await client.PostAsync("https://n9jpobea75.execute-api.us-east-1.amazonaws.com/default/CustomerDataNoSQL",
                 new StringContent(JsonSerializer.Serialize(new Dictionary<string, string>
                 {
